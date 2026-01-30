@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="bg-amber-200-950">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:title" content="Maicenita - Alfajores">
+    <meta property="og:description" content="Alfajores para tus gustos.">
+    <meta property="og:image" content="https://static.vecteezy.com/system/resources/previews/015/735/242/non_2x/argentina-s-dessert-is-alfajores-traditional-cuisine-latin-american-pastries-round-cookies-illustration-cartoon-vector.jpg">
+    <meta property="og:url" content="https://web-confiteria-alfajores.onrender.com/">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block title %}Maicenita{% endblock %}</title>
+
+    <style>
+        /* ESTO ES LO QUE FALTA: Define cómo empieza el objeto y cómo termina */
+        .fade-target {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(246, 123, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-blur fixed top-0 w-full z-[100] border-b border-amber-600-800/50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex h-20 items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="https://static.vecteezy.com/system/resources/previews/015/735/242/non_2x/argentina-s-dessert-is-alfajores-traditional-cuisine-latin-american-pastries-round-cookies-illustration-cartoon-vector.jpg" alt="Logo" class="h-12 sm:h-20 w-auto object-contain py-1"/>
+                    <span class="text-xl font-bold tracking-tight text-white uppercase">Maicenita <span class="text-amber-700">Alfajores</span></span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="{{ url_for('home') }}" class="text-sm font-medium text-white hover:text-white transition-colors">Inicio</a>
+                    <a href="{{ url_for('servicios') }}" class="text-sm font-medium text-white hover:text-white transition-colors">Pedidos</a>
+                    <a href="{{ url_for('contacto') }}" class="px-5 py-2.5 rounded-full bg-white text-black text-sm font-bold hover:bg-orange-600 hover:text-white transition-all">Contacto</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-white p-2">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-orange-400 border-b border-amber-700 px-6 py-6 space-y-4">
+            <a href="{{ url_for('home') }}" class="block text-lg text-white">Inicio</a>
+            <a href="{{ url_for('servicios') }}" class="block text-lg text-white">Pedidos</a>
+            <a href="{{ url_for('contacto') }}" class="block w-fit px-3 py-2 rounded-full bg-white text-black font-extrabold -ml-3">Contacto</a>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <script>
+        // Animación al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("fade-in");
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll(".fade-target").forEach(el => observer.observe(el));
+
+        // Menú Móvil
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menu.classList.toggle('hidden');
+        });
+
+        // Cerrar menú si haces clic fuera
+        document.addEventListener('click', (e) => {
+            if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

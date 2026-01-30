@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h1>Iniciar sesión</h1>
+    <form method="post">
+        <input type="text" name="usuario" placeholder="Usuario" required>
+        <input type="password" name="password" placeholder="Clave" required>
+        <button type="submit">Entrar</button>
+    </form>
+
+
+    <ul>
+        {% for item in ["Manzana", "Banana", "Cereza"] %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

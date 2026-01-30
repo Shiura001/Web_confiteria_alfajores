@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Nite Alfajores - Los mejores del país{% endblock %}
+
+{% block content %}
+<div class="relative min-h-[80vh] flex items-center overflow-hidden bg-orange-50">
+    <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] bg-orange-200/30 rounded-full blur-3xl"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div class="fade-target">
+            <span class="inline-block px-4 py-1 rounded-full bg-orange-500 text-white text-xs font-bold uppercase tracking-widest mb-6">
+                NUEVA RECETA MEJORADA
+            </span>
+            <h1 class="text-6xl sm:text-7xl font-black text-orange-950 leading-none mb-8">
+                El placer de lo <span class="text-orange-500">Artesanal</span>
+            </h1>
+            <p class="text-xl text-orange-900/80 mb-10 max-w-lg">
+                No es solo un alfajor, es una experiencia de sabor única. Elaborados diariamente con ingredientes seleccionados.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="{{ url_for('servicios') }}" class="px-8 py-4 bg-orange-500 text-white rounded-full font-bold text-lg hover:bg-orange-600 shadow-xl shadow-orange-200 transition-all hover:-translate-y-1">
+                    Ver Sabores
+                </a>
+                <a href="{{ url_for('contacto') }}" class="px-8 py-4 bg-white text-orange-600 border-2 border-orange-500 rounded-full font-bold text-lg hover:bg-orange-50 transition-all">
+                    Hacer Pedido
+                </a>
+            </div>
+        </div>
+
+        <div class="fade-target relative">
+            <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white rotate-2 hover:rotate-0 transition-transform duration-500">
+                <img src="https://images.unsplash.com/photo-1590080874088-eec64895b423?q=80&w=1000&auto=format&fit=crop" 
+                     alt="Alfajor de Chocolate de cerca" 
+                     class="w-full h-[500px] object-cover">
+            </div>
+            <div class="absolute -bottom-6 -left-6 w-full h-full bg-yellow-400 rounded-[3rem] -z-10 -rotate-3"></div>
+        </div>
+    </div>
+</div>
+
+<section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 fade-target">
+            <h2 class="text-4xl font-black text-orange-950 mb-4">Elegidos por nuestra comunidad</h2>
+            <p class="text-orange-800/60 font-medium">Calidad premium en cada variedad</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="fade-target group cursor-pointer">
+                <div class="relative h-80 rounded-3xl overflow-hidden mb-6 shadow-lg">
+                    <img src="https://t3.ftcdn.net/jpg/14/39/50/22/360_F_1439502289_vilSf07dGN0o4nzFG0T1XOJy1le0DTiI.jpg" 
+                         alt="Alfajores de Maicena" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-orange-900/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white text-2xl font-bold">Clásicos Maicena</div>
+                </div>
+            </div>
+
+            <div class="fade-target group cursor-pointer">
+                <div class="relative h-80 rounded-3xl overflow-hidden mb-6 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1575032617751-6ddec2089882?q=80&w=800&auto=format&fit=crop" 
+                         alt="Alfajores de Chocolate" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-orange-900/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white text-2xl font-bold">Puro Chocolate</div>
+                </div>
+            </div>
+
+            <div class="fade-target group cursor-pointer">
+                <div class="relative h-80 rounded-3xl overflow-hidden mb-6 shadow-lg">
+                    <img src="https://i.pinimg.com/236x/85/00/e2/8500e267993e6d73e871f36a94b03af7.jpg" 
+                         alt="Caja de alfajores" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-orange-900/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white text-2xl font-bold">Cajas de Regalo</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
