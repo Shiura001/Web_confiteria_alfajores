@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="h-24"></div> <section class="max-w-5xl mx-auto p-6">
+    <div class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold text-orange-950">Panel de Pedidos</h1>
+        <span class="bg-orange-200 text-orange-800 py-1 px-3 rounded-full text-sm font-semibold">
+            Total: {{ pedidos|length }} pedidos
+        </span>
+    </div>
+
+    <div class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100">
+        <table class="w-full text-left border-collapse">
+            <thead class="bg-orange-500 text-white">
+                <tr>
+                    <th class="p-4 uppercase text-xs font-bold">ID</th>
+                    <th class="p-4 uppercase text-xs font-bold">Cliente</th>
+                    <th class="p-4 uppercase text-xs font-bold">Sabor</th>
+                    <th class="p-4 uppercase text-xs font-bold">Cant.</th>
+                    <th class="p-4 uppercase text-xs font-bold text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+                {% for p in pedidos %}
+                <tr class="hover:bg-orange-50 transition-colors">
+                    <td class="p-4 text-gray-500 font-mono text-sm">#{{ p.id }}</td>
+                    <td class="p-4 font-semibold text-gray-800">{{ p.cliente }}</td>
+                    <td class="p-4 text-gray-700">
+                        <span class="px-2 py-1 bg-gray-100 rounded-lg text-sm">{{ p.sabor }}</span>
+                    </td>
+                    <td class="p-4 font-bold text-orange-600">{{ p.cantidad }}</td>
+                    <td class="p-4 text-center">
+                        <button class="text-red-500 hover:text-red-700 text-sm font-medium">
+                            Borrar
+                        </button>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" class="p-10 text-center text-gray-400 italic">
+                        No hay pedidos todavía. ¡Empieza a vender alfajores!
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-6">
+        <a href="{{ url_for('home') }}" class="text-orange-600 hover:underline">
+            ← Volver al formulario
+        </a>
+    </div>
+</section>
+{% endblock %}
