@@ -4,7 +4,7 @@ from models.model import db, Pedido
 import os
 from Modulos.procesar_pedido import verificar_pedido
 app = Flask(__name__)
-
+app.secret_key = 'una_clave_muy_secreta_y_larga_12345'
 # Ruta Home
 @app.route("/")
 def home():

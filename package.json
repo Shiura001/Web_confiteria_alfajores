@@ -1,7 +1,7 @@
 {
   "name": "portafolio-web",
   "version": "1.0.0",
-  "description": "",
+  "description": "Confiteria",
   "license": "ISC",
   "author": "",
   "type": "commonjs",
@@ -10,7 +10,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.18",
+    "@tailwindcss/cli": "^4.1.18"
+  },
+  "devDependencies": {
     "tailwindcss": "^4.1.18"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shiura001/Web_confiteria_alfajores.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Shiura001/Web_confiteria_alfajores/issues"
+  },
+  "homepage": "https://github.com/Shiura001/Web_confiteria_alfajores#readme"
 }
